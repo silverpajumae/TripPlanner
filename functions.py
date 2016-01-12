@@ -1,22 +1,33 @@
 import codecs
 
+agency = []
+calendar = []
+calendar_dates = []
+routes = []
+stop_times = []
+stops = []
+trips = []
 
-def read_agency(file_name):
+
+def read_data(file_name):
     f = codecs.open(file_name, 'r', 'UTF-8')
-    
     parts = []
-    agencies = []
+    data = []
+    
     for line in f:
         parts.append(line.splitlines())
     
     for i in parts:
-        agencies.append(i[0].split(","))
-    agencies.remove(agencies[0])
+        data.append(i[0].split(","))
     parts.clear()
-    return agencies
-        
-        
-test = read_agency("Data/agency.txt")
+    return data
 
-for i in test:
-    print(i)
+agency = read_data("Data/agency.txt")
+calendar = read_data("Data/calendar.txt")
+calendar_dates = read_data("Data/calendar_dates.txt")
+routes = read_data("Data/routes.txt")
+stop_times = read_data("Data/stop_times.txt")
+stops = read_data("Data/stops.txt")
+trips = read_data("Data/trips.txt")
+
+
