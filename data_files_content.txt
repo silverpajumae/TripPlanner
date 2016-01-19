@@ -1,0 +1,63 @@
+
+"""STOPS:
+0-stop_id -req - The stop_id is dataset unique.
+x1-stop_code -opt 
+2-stop_name - req - The stop_name field contains the name of a stop or station.
+x3-stop_lat - req
+x4-stop_lon - req
+x5-zone_id - opt
+x6-alias - puudu dockist
+x7-stop_area - puudu dockist
+x8-stop_desc - puudu dockist"""
+
+"""ROUTES:
+0-route_id - req - The route_id is dataset unique.
+x1-agency_id - opt
+2-route_short_name - req - Liini nr pmts vist
+3-route_long_name - req - The route_long_name contains the full name of a route.
+4-route_type - req - The route_type field describes the type of transportation used on a route.
+x5-route_color - opt
+x6-competent_authority - puudu dockist vedaja vist?"""
+
+"""TRIPS:
+0-route_id - req - This value is referenced from the ROUTES table.
+1-service_id - req - The service_id contains an ID that uniquely identifies a set of dates
+    when service is available for one or more routes. This value is referenced from the
+    CALENDAR or CALENDAR_DATES table.
+x2-trip_id - req - The trip_id is dataset unique.
+x3-trip_headsign - opt 
+x4-trip_long_name opt
+5-direction_code - puudu dockist - kas A>B või B>A
+x6-wheelchair_accessible - opt"""
+
+"""STOP_TIMES:
+0-trip_id - req - This value is referenced from the TRIPS table.
+1-arrival_time - req - The arrival_time specifies the arrival time at a specific stop for a specific trip on a route. 
+2-departure_time - req  - The departure_time specifies the departure time from a specific stop for a specific trip on a route.
+3-stop_id - req - The stop_id is referenced from the STOPS table.
+4-stop_sequence - req - The stop_sequence field identifies the order of the stops for a particular trip.
+    The values for stop_sequence must be non-negative integers, and they must increase along the trip.
+x5-pickup_type - opt
+x6-drop_off_type - opt"""
+
+"""CALENDAR:
+0-service_id - req - This value is dataset unique. It is referenced by the trips.txt file.
+1-monday - req - 
+2-tuesday - req - 
+3-wednesday - req - 
+4-thursday - req - 
+5-friday - req - 
+6-saturday - req - 
+7-sunday - req - 
+8-start_date - req - 
+9-end_date - req - """
+
+"""CALENDAR_DATES:
+0-service_id - req - Each (service_id, date) pair can only appear once in calendar_dates.txt. If the a service_id value appears 
+	in both the calendar.txt and calendar_dates.txt files, the information in calendar_dates.txt modifies the service information 
+	specified in calendar.txt. This field is referenced by the trips.txt file.
+1-date - req - The date field's value should be in YYYYMMDD format.
+2-exception_type - The exception_type indicates whether service is available on the date specified in the date field.
+	A value of 1 indicates that service has been added for the specified date.
+	A value of 2 indicates that service has been removed for the specified date."""
+
