@@ -22,7 +22,7 @@ def read_data(file_name):
     parts.clear()
     return data
 
-print("Getting data")
+print("Getting data, may take a minute")
 agency = read_data("Data/agency.txt")
 calendar = read_data("Data/calendar.txt")
 calendar_dates = read_data("Data/calendar_dates.txt")
@@ -151,7 +151,7 @@ def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
                 middle.append(peatused[1])
 
     if start and end:
-        if len(middle)>20:
+        if len(middle)>40:
             return False
         print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
         print("Stops that will be passed by: ")
@@ -233,9 +233,23 @@ liinid = liinide_koostaja(trips, stop_times, stops)
 #    print()
 #print(liinid[-1])
 
-valjumiskoht = input("Insert FROM stop: ")
-soovitud_koht = input("Insert TO stop: ")
-time=input("Insert time (hh:mm:ss): ")
 
-if sama_liin(liinid, valjumiskoht, soovitud_koht,time)== False:
-    one_change(liinid, valjumiskoht, soovitud_koht,time, -1, -1)
+testing=input("Testing mode? y/n: ")
+
+if testing=="y":
+    print("Testing the functions with input: ")
+    print("From: kosmos")
+    print("To: jaanika")
+    print("Time: 15:55:00")
+    print("-----Expected-----")
+    print("Departure from kosmos at:  15:57:00 and arrives at jaanika at: 16:34:00")
+    print("Middle stops to pass by:")
+    print("['Vineeri', 'Tallinn-Väike', 'Kalev', 'Virve', 'Risti', 'Valdeku', 'Hiiu', 'Hõimu', 'Vana-Pääsküla', 'Viljaku', 'Laagri', 'Urda', 'Peoleo', 'Kanama', 'Laiavainu', 'Uku', 'Jõgisoo', 'Harutee', 'Allikamäe', 'Ruila tee', 'Laitse tee']")
+    print("-----Results-----")
+    sama_liin(liinid,"kosmos", "jaanika","15:55:00")
+else:
+    valjumiskoht = input("Insert FROM stop: ")
+    soovitud_koht = input("Insert TO stop: ")
+    time=input("Insert time (hh:mm:ss): ")
+    if sama_liin(liinid, valjumiskoht, soovitud_koht,time)== False:
+        one_change(liinid, valjumiskoht, soovitud_koht,time, -1, -1)
