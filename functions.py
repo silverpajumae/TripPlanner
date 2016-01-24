@@ -45,7 +45,7 @@ def liinide_koostaja(trips, stoptimes, stops):
     liinid = []
     luger=0
     for stop in stoptimes:
-        if luger>600:
+        if luger>25600:
             return liinid
         else:
             if len(liinid)==0:
@@ -125,6 +125,7 @@ def time_comp(user, current):
     
 #same lines
 def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
+    print("Looking in the same line.")
     valjumis_aeg=0
     saabumisaeg=0
     start=False
@@ -139,20 +140,15 @@ def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
                 if time_comp(time, peatused[2])==False:
                     break
                 valjumis_aeg=peatused[2]
-                print("Found start")
-                print("Next time: "+valjumis_aeg)
                 start=True
                 middlebool=True
+                middle=[]
             elif start:
-                #print("Looking in the same line.")
                 if soovitud_koht.lower()== peatused[1].lower():
                     saabumisaeg = peatused[2]
-                    print("Found stop")
                     end=True
                     break      
-            
-                elif middlebool:
-                    middle.append(peatused[1])
+                middle.append(peatused[1])
 
     if start and end:
         print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
@@ -169,6 +165,7 @@ liinid = liinide_koostaja(trips, stop_times, stops)
 #for i in liinid:
 #    print(i)
 #    print()
+#print(liinid[-1])
 valjumiskoht = input("Insert FROM stop: ")
 soovitud_koht = input("Insert TO stop: ")
 time=input("Insert time (hh:mm:ss): ")
