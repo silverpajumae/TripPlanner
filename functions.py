@@ -22,6 +22,7 @@ def read_data(file_name):
     parts.clear()
     return data
 
+print("Getting data")
 agency = read_data("Data/agency.txt")
 calendar = read_data("Data/calendar.txt")
 calendar_dates = read_data("Data/calendar_dates.txt")
@@ -44,7 +45,7 @@ def liinide_koostaja(trips, stoptimes, stops):
     liinid = []
     luger=0
     for stop in stoptimes:
-        if luger>100:
+        if luger>600:
             return liinid
         else:
             if len(liinid)==0:
@@ -106,37 +107,69 @@ def liinide_koostaja(trips, stoptimes, stops):
                     luger+=1
                 else:
                     luger+=1
-            
 
-def sama_liin(liinide_list, valjumiskoht, soovitud_koht):
+#to compare times saved as strings
+def time_comp(user, current):
+    time1=user.split(":")
+    time2=current.split(":")
+    if int(time1[0])<int(time2[0]):
+        return True
+    elif int(time1[0])==int(time2[0]):
+        if int(time1[1])<int(time2[1]):
+            return True
+        elif int(time1[1])<int(time2[1]):
+            if int(time1[2])==int(time2[2]):
+                return True
+    
+    return False
+    
+#same lines
+def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
     valjumis_aeg=0
     saabumisaeg=0
-    samas_liinis=False    
+    start=False
+    end=False
+    middle=[]
+    middlebool=False
     for liin in liinide_list:
+        if end:
+            break
         for peatused in liin[2]:
-            if valjumiskoht.lower() == peatused[1].lower():
+            if valjumiskoht.lower()== peatused[1].lower():
+                if time_comp(time, peatused[2])==False:
+                    break
                 valjumis_aeg=peatused[2]
-                samas_liinis=True
-                print("leidsin")
-                break
-    if samas_liinis==True:
-        print("Väljumiskoht leitud, otsin soovitud kohta samas liinis")
-    else:
-        print("Ei leidnud peatust")
-    for liin in liinide_list:
-        for peatused in liin[2]:
-            if soovitud_koht.lower()== peatused[1].lower():
-                saabumisaeg = peatused[2]
-                print("leidsin")
-                break
-    print("Transport väljub " +str(valjumiskoht) +" peatusest kell " + str(valjumis_aeg) + " ja saabub peatusesse " +str(soovitud_koht) + " kell " + str(saabumisaeg))
+                print("Found start")
+                print("Next time: "+valjumis_aeg)
+                start=True
+                middlebool=True
+            elif start:
+                #print("Looking in the same line.")
+                if soovitud_koht.lower()== peatused[1].lower():
+                    saabumisaeg = peatused[2]
+                    print("Found stop")
+                    end=True
+                    break      
+            
+                elif middlebool:
+                    middle.append(peatused[1])
 
-                
-print("Alustan Liinide tööd")
+    if start and end:
+        print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
+        print("Stops that will be passed by: ")
+        print(middle)
+        return True
+    else:
+        print("Can't find the stops/not in the same line.")
+        return False
+
 liinid = liinide_koostaja(trips, stop_times, stops)
+
+#for testing
 #for i in liinid:
-    #print(i)
-    #print()
+#    print(i)
+#    print()
 valjumiskoht = input("Insert FROM stop: ")
-soovitud_koht = input("Insert To stop: ")
-sama_liin(liinid, valjumiskoht, soovitud_koht)
+soovitud_koht = input("Insert TO stop: ")
+time=input("Insert time (hh:mm:ss): ")
+sama_liin(liinid, valjumiskoht, soovitud_koht,time)

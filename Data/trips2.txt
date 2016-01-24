@@ -1,0 +1,84 @@
+﻿route_id,service_id,trip_id,trip_headsign,trip_long_name,direction_code,wheelchair_accessible
+4b369350a65317bdc1db0bc52b3bd7b7,7453,77446,Turba kauplus,Tallinn - Riisipere - Nissi - Turba,A>B,0
+4b369350a65317bdc1db0bc52b3bd7b7,7453,77448,Turba kauplus,Tallinn - Riisipere - Nissi - Turba,A>B,0
+4b369350a65317bdc1db0bc52b3bd7b7,7454,77450,Turba kauplus,Tallinn - Riisipere - Nissi - Turba,A>B,0
+4b369350a65317bdc1db0bc52b3bd7b7,7454,77452,Turba kauplus,Tallinn - Riisipere - Nissi - Turba,A>B,0
+4b369350a65317bdc1db0bc52b3bd7b7,7453,77447,Estonia,Turba - Nissi - Riisipere - Tallinn,B>A,0
+4b369350a65317bdc1db0bc52b3bd7b7,7453,77449,Estonia,Turba - Nissi - Riisipere - Tallinn,B>A,0
+4b369350a65317bdc1db0bc52b3bd7b7,7454,77451,Estonia,Turba - Nissi - Riisipere - Tallinn,B>A,0
+4b369350a65317bdc1db0bc52b3bd7b7,7454,77453,Estonia,Turba - Nissi - Riisipere - Tallinn,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70878,352113,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352115,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352117,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352119,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352121,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,1
+4992588bea2465a4849ef783d2a2cf1a,70879,352124,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352126,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352128,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352131,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352133,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352136,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352138,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352143,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352145,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352149,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352151,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352154,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352156,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352158,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352161,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352163,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352169,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352171,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352177,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352179,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352182,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352184,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352188,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352190,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352193,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352195,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352200,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352205,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352207,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70882,371327,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70884,372611,A. Laikmaa,Vana-Pääsküla - Viru keskus,B>A,0
+4992588bea2465a4849ef783d2a2cf1a,70878,352112,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352114,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352116,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352118,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,1
+4992588bea2465a4849ef783d2a2cf1a,70878,352120,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,1
+4992588bea2465a4849ef783d2a2cf1a,70879,352125,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352127,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352130,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70879,352132,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352137,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352139,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352142,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352144,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70880,352146,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352150,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352153,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352155,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70881,352157,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352162,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352165,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352168,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70882,352170,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352176,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352178,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352181,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70883,352183,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352187,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352189,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352192,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352194,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70884,352196,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352199,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352201,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352204,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352206,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70885,352208,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70879,372597,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70881,372603,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
+4992588bea2465a4849ef783d2a2cf1a,70883,372609,Vana-Pääsküla,Viru keskus - Vana-Pääsküla,A>B,0
