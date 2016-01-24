@@ -151,6 +151,8 @@ def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
                 middle.append(peatused[1])
 
     if start and end:
+        if len(middle)>20:
+            return False
         print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
         print("Stops that will be passed by: ")
         print(middle)
@@ -159,6 +161,70 @@ def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
         print("Can't find the stops/not in the same line.")
         return False
 
+
+def lines_check(liinide_list,start, end, i,j):
+
+    line_start=liinide_list[i][2]
+    line_end=liinide_list[j][2]
+
+    for stop1 in line_start:
+
+        for stop2 in line_end:
+
+            if stop1[1]==stop2[1]:
+                return [True, stop1]
+    return [False, stop1] 
+            
+         
+
+    
+#one change in lines
+def one_change(liinide_list, valjumiskoht, soovitud_koht, time, i, j):
+
+    print("Looking lines with one change.")
+    valjumis_aeg=0
+    saabumisaeg=0
+    start=False
+    end=False
+    middle=[]
+    middlebool=False
+    for line in liinide_list:
+
+        if start:
+            break
+        i+=1
+        for peatused in line[2]:
+            if valjumiskoht.lower()== peatused[1].lower():
+                if time_comp(time, peatused[2])==False:
+                    break
+                valjumis_aeg=peatused[2]
+                start=True
+                middlebool=True
+                middle=[]
+    if start:
+        for line in liinide_list:
+            j+=1
+            for peatused in line[2]:
+                if soovitud_koht.lower()== peatused[1].lower():
+                    if time_comp(time, peatused[2])==True and time_comp(valjumis_aeg,peatused[2])==True:
+                        
+                        middle.append(peatused[1])
+                        saabumisaeg=peatused[2]
+                        check=lines_check(liinide_list, valjumiskoht, soovitud_koht, i, j)
+                        if check[0]:
+                            print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
+                            print("Change lines at :" +check[1][1])
+                            
+                            return True
+                        else:
+                            print("Error, something went wrong")
+                            return False
+                    else:
+                        break
+    else:
+        print("Cant find the stops")
+      
+        
 liinid = liinide_koostaja(trips, stop_times, stops)
 
 #for testing
@@ -166,7 +232,10 @@ liinid = liinide_koostaja(trips, stop_times, stops)
 #    print(i)
 #    print()
 #print(liinid[-1])
+
 valjumiskoht = input("Insert FROM stop: ")
 soovitud_koht = input("Insert TO stop: ")
 time=input("Insert time (hh:mm:ss): ")
-sama_liin(liinid, valjumiskoht, soovitud_koht,time)
+
+if sama_liin(liinid, valjumiskoht, soovitud_koht,time)== False:
+    one_change(liinid, valjumiskoht, soovitud_koht,time, -1, -1)
