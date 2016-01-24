@@ -111,27 +111,32 @@ def liinide_koostaja(trips, stoptimes, stops):
 def sama_liin(liinide_list, valjumiskoht, soovitud_koht):
     valjumis_aeg=0
     saabumisaeg=0
+    samas_liinis=False    
     for liin in liinide_list:
         for peatused in liin[2]:
-            if valjumiskoht == peatused[1]:
+            if valjumiskoht.lower() == peatused[1].lower():
                 valjumis_aeg=peatused[2]
+                samas_liinis=True
                 print("leidsin")
                 break
-    print("Väljumiskoht leitud, otsin soovitud kohta samas liinis")
+    if samas_liinis==True:
+        print("Väljumiskoht leitud, otsin soovitud kohta samas liinis")
+    else:
+        print("Ei leidnud peatust")
     for liin in liinide_list:
         for peatused in liin[2]:
-            if soovitud_koht== peatused[1]:
+            if soovitud_koht.lower()== peatused[1].lower():
                 saabumisaeg = peatused[2]
                 print("leidsin")
                 break
     print("Transport väljub " +str(valjumiskoht) +" peatusest kell " + str(valjumis_aeg) + " ja saabub peatusesse " +str(soovitud_koht) + " kell " + str(saabumisaeg))
-        
+
                 
 print("Alustan Liinide tööd")
 liinid = liinide_koostaja(trips, stop_times, stops)
-for i in liinid:
-    print(i)
-    print()
+#for i in liinid:
+    #print(i)
+    #print()
 valjumiskoht = input("Insert FROM stop: ")
 soovitud_koht = input("Insert To stop: ")
 sama_liin(liinid, valjumiskoht, soovitud_koht)
