@@ -261,12 +261,6 @@ else:
     while closing==0: 
         check_names=0
         while check_names==0:
-            print()
-                       
-            print(line_list[0])
-            
-            print()
-            
             starting_point = input("Insert starting stop: ")
             destination = input("Insert destination stop: ")
             time=input("Insert expected departure time (hh:mm:ss): ")
