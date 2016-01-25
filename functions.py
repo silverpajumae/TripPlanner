@@ -39,74 +39,74 @@ stop_times.pop(0)
 stops.pop(0)
 trips.pop(0)
 
-liinid = []
+line_list = []
 
-def liinide_koostaja(trips, stoptimes, stops):
-    liinid = []
-    luger=0
+def line_list_maker(trips, stoptimes, stops):
+    line_list = []
+    counter=0
     for stop in stoptimes:
-        if luger>25600:
-            return liinid
+        if counter>25600:
+            return line_list
         else:
-            if len(liinid)==0:
-                liin=[]
-                liin.append(stop[0])
+            if len(line_list)==0:
+                one_line=[]
+                one_line.append(stop[0])
                 for trip in trips:
                     if trip[2]==stop[0]:
-                        liin.append(trip[4])
+                        one_line.append(trip[4])
                         break
                 
-                peatus=[]
-                peatus.append(stop[3])
+                one_stop=[]
+                one_stop.append(stop[3])
                 for stop_name in stops:
                     if stop_name[0]==stop[3]:
-                        peatus.append(stop_name[2])
+                        one_stop.append(stop_name[2])
                         break
-                peatus.append(stop[2])
-                peatused=[]
-                peatused.append(peatus)
-                liin.append(peatused)
-                liinid.append(liin)
-                luger+=1
+                one_stop.append(stop[2])
+                stops_list=[]
+                stops_list.append(one_stop)
+                one_line.append(stops_list)
+                line_list.append(one_line)
+                counter+=1
             else:
                 i=0
-                leidus=0
-                while i < len(liinid):
-                    if liinid[i][0]==stop[0]:
-                        peatus=[]
-                        peatus.append(stop[3])
+                found=0
+                while i < len(line_list):
+                    if line_list[i][0]==stop[0]:
+                        one_stop=[]
+                        one_stop.append(stop[3])
                         for stop_name in stops:
                             if stop_name[0]==stop[3]:
-                                peatus.append(stop_name[2])
+                                one_stop.append(stop_name[2])
                                 break
-                        peatus.append(stop[2])
-                        liinid[i][2].append(peatus)
-                        luger+=1
-                        leidus=1
+                        one_stop.append(stop[2])
+                        line_list[i][2].append(one_stop)
+                        counter+=1
+                        found=1
                         break
                     i+=1
-                if leidus==0:
-                    liin=[]
-                    liin.append(stop[0])
+                if found==0:
+                    one_line=[]
+                    one_line.append(stop[0])
                     for trip in trips:
                         if trip[2]==stop[0]:
-                            liin.append(trip[4])
+                            one_line.append(trip[4])
                             break
                     
-                    peatus=[]
-                    peatus.append(stop[3])
+                    one_stop=[]
+                    one_stop.append(stop[3])
                     for stop_name in stops:
                         if stop_name[0]==stop[3]:
-                            peatus.append(stop_name[2])
+                            one_stop.append(stop_name[2])
                             break
-                    peatus.append(stop[2])
-                    peatused=[]
-                    peatused.append(peatus)
-                    liin.append(peatused)
-                    liinid.append(liin)
-                    luger+=1
+                    one_stop.append(stop[2])
+                    stops_list=[]
+                    stops_list.append(one_stop)
+                    one_line.append(stops_list)
+                    line_list.append(one_line)
+                    counter+=1
                 else:
-                    luger+=1
+                    counter+=1
 
 #to compare times saved as strings
 def time_comp(user, current):
@@ -124,36 +124,36 @@ def time_comp(user, current):
     return False
     
 #same lines
-def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
+def same_line(line_list, starting_point, destination, time):
     print("Looking in the same line.")
-    valjumis_aeg=0
-    saabumisaeg=0
+    departure_time=0
+    arriving_time=0
     start=False
     end=False
     middle=[]
     middlebool=False
-    for liin in liinide_list:
+    for one_line in line_list:
         if end:
             break
-        for peatused in liin[2]:
-            if valjumiskoht.lower()== peatused[1].lower():
-                if time_comp(time, peatused[2])==False:
+        for stops_list in one_line[2]:
+            if starting_point.lower()== stops_list[1].lower():
+                if time_comp(time, stops_list[2])==False:
                     break
-                valjumis_aeg=peatused[2]
+                departure_time=stops_list[2]
                 start=True
                 middlebool=True
                 middle=[]
             elif start:
-                if soovitud_koht.lower()== peatused[1].lower():
-                    saabumisaeg = peatused[2]
+                if destination.lower()== stops_list[1].lower():
+                    arriving_time = stops_list[2]
                     end=True
                     break      
-                middle.append(peatused[1])
+                middle.append(stops_list[1])
 
     if start and end:
         if len(middle)>40:
             return False
-        print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
+        print("Departure from " +str(starting_point) +" at:  " + str(departure_time) + " and arrives at " +str(destination) + " at: " + str(arriving_time))
         print("Stops that will be passed by: ")
         print(middle)
         return True
@@ -162,10 +162,10 @@ def sama_liin(liinide_list, valjumiskoht, soovitud_koht, time):
         return False
 
 
-def lines_check(liinide_list,start, end, i,j):
+def lines_check(line_list,start, end, i,j):
 
-    line_start=liinide_list[i][2]
-    line_end=liinide_list[j][2]
+    line_start=line_list[i][2]
+    line_end=line_list[j][2]
 
     for stop1 in line_start:
 
@@ -179,40 +179,40 @@ def lines_check(liinide_list,start, end, i,j):
 
     
 #one change in lines
-def one_change(liinide_list, valjumiskoht, soovitud_koht, time, i, j):
+def one_change(line_list, starting_point, destination, time, i, j):
 
     print("Looking lines with one change.")
-    valjumis_aeg=0
-    saabumisaeg=0
+    departure_time=0
+    arriving_time=0
     start=False
     end=False
     middle=[]
     middlebool=False
-    for line in liinide_list:
+    for line in line_list:
 
         if start:
             break
         i+=1
-        for peatused in line[2]:
-            if valjumiskoht.lower()== peatused[1].lower():
-                if time_comp(time, peatused[2])==False:
+        for stops_list in line[2]:
+            if starting_point.lower()== stops_list[1].lower():
+                if time_comp(time, stops_list[2])==False:
                     break
-                valjumis_aeg=peatused[2]
+                departure_time=stops_list[2]
                 start=True
                 middlebool=True
                 middle=[]
     if start:
-        for line in liinide_list:
+        for line in line_list:
             j+=1
-            for peatused in line[2]:
-                if soovitud_koht.lower()== peatused[1].lower():
-                    if time_comp(time, peatused[2])==True and time_comp(valjumis_aeg,peatused[2])==True:
+            for stops_list in line[2]:
+                if destination.lower()== stops_list[1].lower():
+                    if time_comp(time, stops_list[2])==True and time_comp(departure_time,stops_list[2])==True:
                         
-                        middle.append(peatused[1])
-                        saabumisaeg=peatused[2]
-                        check=lines_check(liinide_list, valjumiskoht, soovitud_koht, i, j)
+                        middle.append(stops_list[1])
+                        arriving_time=stops_list[2]
+                        check=lines_check(line_list, starting_point, destination, i, j)
                         if check[0]:
-                            print("Departure from " +str(valjumiskoht) +" at:  " + str(valjumis_aeg) + " and arrives at " +str(soovitud_koht) + " at: " + str(saabumisaeg))
+                            print("Departure from " +str(starting_point) +" at:  " + str(departure_time) + " and arrives at " +str(destination) + " at: " + str(arriving_time))
                             print("Change lines at :" +check[1][1])
                             
                             return True
@@ -223,9 +223,15 @@ def one_change(liinide_list, valjumiskoht, soovitud_koht, time, i, j):
                         break
     else:
         print("Cant find the stops")
-      
+
+def check_stop_exists(stop_name, stops_list):
+    for i in stops_list:
+        if i[2].lower()==stop_name.lower():
+            return True
+    return False
+     
         
-liinid = liinide_koostaja(trips, stop_times, stops)
+line_list = line_list_maker(trips, stop_times, stops)
 
 #for testing
 #for i in liinid:
@@ -237,19 +243,47 @@ liinid = liinide_koostaja(trips, stop_times, stops)
 testing=input("Testing mode? y/n: ")
 
 if testing=="y":
+    print()
     print("Testing the functions with input: ")
     print("From: kosmos")
     print("To: jaanika")
     print("Time: 15:55:00")
+    print()
     print("-----Expected-----")
     print("Departure from kosmos at:  15:57:00 and arrives at jaanika at: 16:34:00")
     print("Middle stops to pass by:")
     print("['Vineeri', 'Tallinn-Väike', 'Kalev', 'Virve', 'Risti', 'Valdeku', 'Hiiu', 'Hõimu', 'Vana-Pääsküla', 'Viljaku', 'Laagri', 'Urda', 'Peoleo', 'Kanama', 'Laiavainu', 'Uku', 'Jõgisoo', 'Harutee', 'Allikamäe', 'Ruila tee', 'Laitse tee']")
+    print()
     print("-----Results-----")
-    sama_liin(liinid,"kosmos", "jaanika","15:55:00")
+    same_line(line_list,"kosmos", "jaanika","15:55:00")
 else:
-    valjumiskoht = input("Insert FROM stop: ")
-    soovitud_koht = input("Insert TO stop: ")
-    time=input("Insert time (hh:mm:ss): ")
-    if sama_liin(liinid, valjumiskoht, soovitud_koht,time)== False:
-        one_change(liinid, valjumiskoht, soovitud_koht,time, -1, -1)
+    closing=0
+    while closing==0: 
+        check_names=0
+        while check_names==0:
+            print()
+                       
+            print(line_list[0])
+            
+            print()
+            
+            starting_point = input("Insert starting stop: ")
+            destination = input("Insert destination stop: ")
+            time=input("Insert expected departure time (hh:mm:ss): ")
+            if check_stop_exists(starting_point,stops):
+                if check_stop_exists(destination,stops):
+                    check_names=1
+                    print()
+                    if same_line(line_list, starting_point, destination,time)== False:
+                        print()
+                        one_change(line_list, starting_point, destination,time, -1, -1)
+                else:
+                    print("Given destination stop does not exist. Try again.")
+            else:
+                print("Given starting stop does not exist. Try again.")
+        answer=input("Do you with to search more? y/n: ")
+        if answer=="n":
+            closing=1
+            print("Closing program.")
+    
+            
